@@ -1,0 +1,21 @@
+version: '3' 
+
+services:
+  app: 
+    build: . 
+    links:
+      - postgredb
+    command: yarn dev 
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/app
+
+  postgredb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1234"
+      PGDATA: /data/postgres

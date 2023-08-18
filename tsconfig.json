@@ -1,0 +1,23 @@
+{
+  "include": ["src/*.ts", "../index.ts"],
+
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "target": "es2017",
+    "module": "commonjs",
+    "sourceMap": true,
+
+    "strict": true,
+
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@test/*": ["test/*"]
+    }
+  }
+}
