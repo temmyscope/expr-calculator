@@ -59,16 +59,16 @@ yarn dev
 ```
 
 ## Rules
-* Ideally use TypeScript
-* Ideally use Docker to run node.js
-* Add unit tests where it makes sense
-* Add integration tests where it makes sense
-* When writing your code, imagine the service is meant to be released to production (with a low-to-moderate expected load)
-* Come up with a deployment strategy to a Cloud provider
+[x] Ideally use TypeScript
+[x] Ideally use Docker to run node.js
+[x] Add unit tests where it makes sense
+[x] Add integration tests where it makes sense
+[x] When writing your code, imagine the service is meant to be released to production (with a low-to-moderate expected load)
+[x] Come up with a deployment strategy to a Cloud provider
+  - DigitalOcean Dockerized Droplet
 
 
 ## Development utilities:
-
 * [nodemon](https://www.npmjs.com/package/nodemon)
   * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 * [eslint](https://www.npmjs.com/package/eslint)
