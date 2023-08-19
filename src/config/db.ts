@@ -1,4 +1,3 @@
-import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
 import { Calculus } from "../app/entity/Calculus";
 import { DBConfig } from "../app/types";
