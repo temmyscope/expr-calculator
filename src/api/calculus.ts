@@ -7,11 +7,17 @@ const router = express.Router();
 const calculusController = (dataSource: any) => {
 
   const calcRepo = new CalculusRepository(dataSource);
-  const userService = new CalculusService(calcRepo);
+  const calculusService = new CalculusService(calcRepo);
   
-  router.get('/', (req: Request, res: Response) => {
-    
-    res.json(['apis are lovely']);
+  router.get('/', async(req: Request, res: Response) => {
+    const { query } = req.params;
+    try {
+      const result = await calculusService.calculate(query, req.ip);
+      res.json({ "error": false, "result": result });
+    } catch (error) {
+      //log error trace
+      res.status(500);
+    }
   });
   
   router.get('/history', (req: Request, res: Response) => {
