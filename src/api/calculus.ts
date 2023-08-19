@@ -1,13 +1,24 @@
 import express, { Request, Response } from 'express';
+import CalculusRepository from "../app/repo/calculus";
+import CalculusService from "../app/services/calculus";
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.json(['apis are lovely']);
-});
+const calculusController = (dataSource: any) => {
 
-router.get('/history', (req: Request, res: Response) => {
-  res.json(['Emojis are stupid']);
-});
+  const calcRepo = new CalculusRepository(dataSource);
+  const userService = new CalculusService(calcRepo);
+  
+  router.get('/', (req: Request, res: Response) => {
+    
+    res.json(['apis are lovely']);
+  });
+  
+  router.get('/history', (req: Request, res: Response) => {
+    res.json(['Emojis are stupid']);
+  });
 
-export default router;
+  return router;
+}
+
+export default calculusController;
