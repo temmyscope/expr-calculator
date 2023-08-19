@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import api from '.';
+import api from './api';
 import middlewares from './middlewares';
 
 dotenv.config({ path: '../.env' });
