@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/**/*.ts --fix",
     "start": "tsc && node dist/src/index.js",
-    "start:dev": "nodemon",
+    "start:dev": "tsc && nodemon dist/src/index.js",
     "build": "rimraf ./build && tsc --project src/",
     "test": "ENV_FILE=./.env.test jest --coverage",
     "test:watch": "jest --watch"
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.6.2",
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.13",
     "@types/jest": "^29.5.3",
     "@types/morgan": "^1.9.4",
