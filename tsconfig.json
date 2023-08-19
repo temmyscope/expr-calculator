@@ -1,6 +1,5 @@
 {
   "include": ["src/*.ts", "../index.ts", "src/api/index.ts"],
-
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": ".",
@@ -18,6 +17,9 @@
     "paths": {
       "@/*": ["src/*"],
       "@test/*": ["test/*"]
-    }
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
   }
 }

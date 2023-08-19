@@ -6,7 +6,6 @@
   "scripts": {
     "lint": "eslint src/**/*.ts --fix",
     "start": "tsc && node dist/src/index.js",
-    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc --project src/",
     "test": "ENV_FILE=./.env.test jest --coverage",
