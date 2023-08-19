@@ -9,7 +9,9 @@ describe('utils', () => {
   });
 
   it('checks that an error is thrown if invalid operation is passed', (done) => {
-    expect(calculus('2% of (23/(3*3))- 23 * (2*3)')).toThrowError();
+    expect(calculus('2% of (23/(3*3))- 23 * (2*3)')).toThrowError(
+      "Invalid operation/symbol/character found in query"
+    );
 
     done();
   });
