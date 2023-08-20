@@ -1,4 +1,5 @@
 import calculate from "../../utils/calculus";
+import { InternalErrorException } from "../exception";
 import { CalculusRepositoryInterface, QueryHistory } from "../types";
 
 class CalculusService {
@@ -18,7 +19,7 @@ class CalculusService {
     if (calcResult == true) {
       return result;
     }
-    throw new Error("An Error occurred");
+    throw new InternalErrorException();
   }
 }
 
