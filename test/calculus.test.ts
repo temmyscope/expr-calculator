@@ -13,6 +13,15 @@ describe('GET /api/calculus', () => {
       });
   }, 10000);
 
+  it('responds with error message if query is empty', async() => {
+    request(calculus)
+      .get(`/api/calculus?query=`)
+      .set('Accept', 'application/json').expect('Content-Type', /json/)
+      .expect(422).then(res => {
+        expect(res.body).toHaveProperty('error', true);
+      });
+  }, 10000);
+
   it('responds with error message when invalid operation is used in expression', async() => {
     request(calculus)
       .get(`/api/calculus?query=MiUgb2YgKDIzLygzKjMpKS0gMjMgKiAoMiozKQ==`)
