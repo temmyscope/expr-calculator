@@ -14,7 +14,6 @@ function errorHandler(
 ) {
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
   //log stack if statusCode is 500: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
-  console.log(`code: ${statusCode}  ${err}`)
   res.status(statusCode);
   if (statusCode !== 500) {
     res.json({ message: err.message, error: true });

@@ -19,7 +19,6 @@ app.use(express.json({ limit: '15MB' }));
 
 //setup db connection
 AppDataSource.initialize().then(() => {
-  console.log("Database running...");
 }).catch((error) => console.log(error));
 
 app.use('/api', api);

@@ -14,7 +14,7 @@ router.get('/', async(req: Request, res: Response, next: NextFunction) => {
     const result = await calculusService.calculate(
       Buffer.from(req.query.query as string, 'base64').toString('utf8'), req.ip
     );
-    res.json({ "error": false, "result": result });
+    res.status(200).json({ "error": false, "result": result });
   } catch (e) {
     if (e instanceof InvalidOperationException) {
       res.status(422);
@@ -25,8 +25,14 @@ router.get('/', async(req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-router.get('/history', (req: Request, res: Response) => {
-  res.json(['Emojis are stupid']);
+router.get('/history', async(req: Request, res: Response, next: NextFunction) => {
+  try {
+    const history = await calculusService.getUserHistory(req.ip);
+    res.status(200).json({ data: history });
+  } catch (e) {
+    res.status(500);
+    next(e);
+  }
 });
 
 export default router;
