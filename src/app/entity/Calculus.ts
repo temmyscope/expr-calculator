@@ -15,7 +15,7 @@ export class Calculus {
   @Column("float")
   result: number;
 
-  @Column()
+  @Column("float")
   timeTaken: number;
 
   @CreateDateColumn()
