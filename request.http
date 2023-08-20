@@ -1,0 +1,11 @@
+#### 
+//For testing if Application is properly setup
+GET http://localhost:3000/api
+
+#### 
+// evaluate expression 
+GET http://localhost:3000/api/calculus?query=MiAqICgyMy8oMyozKSktIDIzICogKDIqMyk=
+
+####
+//fetch history of current user
+GET http://localhost:3000/api/calculus/history
