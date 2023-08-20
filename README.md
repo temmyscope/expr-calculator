@@ -60,8 +60,9 @@ yarn dev
 - [x] Add integration tests where it makes sense
 - [x] When writing your code, imagine the service is meant to be released to production (with a low-to-moderate expected load)
 - [x] Come up with a deployment strategy to a Cloud provider
-  - DigitalOcean Dockerized Droplets
-  - AWS
+  - In using cloud for a low-budget production service, our obvious deployment model is Public cloud. In using Public cloud deployment, we have several service providers with different offerings and products that might be extremely easy to provision  and manage, to mention a few Google Cloud, Azure, AWS, etc. In my experience, using AWS seems very cheap initially but over time certain costs acrue and are almost unavoidable eventually; and this is why from a cost point of view, especially targeting our current usecase project, we must also have concerns for cost; now, this is where [DigitalOcean Dockerized Droplets]() comes in.
+
+  - For our AWS alternative, a few of the products and tools we might use include: AWS CloudFormation, Amazon ECR and AWS Lambda OR AWS ECS.
 
 
 ## Development utilities:
