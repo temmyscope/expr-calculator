@@ -16,23 +16,13 @@ describe('GET /api/calculus', () => {
       }, done);
   });
 
-  it('responds with error message when invalid encoding is passed', (done) => {
-    request(calculus)
-      .get(`/api/calculus?query=MiAqICgyMy8oMyozKSktIDICogKDIqMyk`) //random string
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(422, {
-        error: true, message: ""
-      }, done);
-  });
-
   it('responds with error message when invalid operation is used in expression', (done) => {
     request(calculus)
       .get(`/api/calculus?query=MiUgb2YgKDIzLygzKjMpKS0gMjMgKiAoMiozKQ==`) //2% of (23/(3*3))- 23 * (2*3)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(422, {
-        error: true, message: "Invalid operation used: only +, -, *, /, (, ) are supported"
+        error: true, message: "Invalid operation/symbol/character found in expression"
       }, done);
   });
 

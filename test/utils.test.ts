@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import calculus from '../src/utils/calculus';
+import { InvalidOperationException } from '../src/app/exception';
 
 describe('utils', () => {
   it('checks that calculus function returns correct value', (done) => {
@@ -9,9 +10,7 @@ describe('utils', () => {
   });
 
   it('checks that an error is thrown if invalid operation is passed', (done) => {
-    expect(calculus('2% of (23/(3*3))- 23 * (2*3)')).toThrowError(
-      "Invalid operation/symbol/character found in query"
-    );
+    expect(calculus('2% of (23/(3*3))- 23 * (2*3)')).toThrow(InvalidOperationException);
 
     done();
   });

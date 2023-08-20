@@ -9,7 +9,7 @@ describe('GET /api', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, {
-        message: 'Bike24 Calculus API - 👋🌎🌍🌏'
+        message: 'B24 Calculus API - 👋🌎🌍🌏'
       }, done);
   });
 });
