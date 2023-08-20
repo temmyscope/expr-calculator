@@ -20,8 +20,7 @@ The input can be expected to be UTF-8 with BASE64 encoding
 **Result** 
 * On success: JSON response of format: `{ "error": false, "result": number }`
 * On error: Either a HTTP error code or: `{ "error": true, "message": "string" }`
- 
- <br />
+<br />
 
 ```
 GET /calculus/history
@@ -35,37 +34,34 @@ GET /calculus/history
 <br />
 
 ## Setup
-
 ```
 yarn
 ```
 
 ## Lint
-
 ```
 yarn lint
 ```
 
 ## Test
-
 ```
 yarn test
 ```
 
 ## Development
-
 ```
 yarn dev
 ```
 
 ## Rules
-[x] Ideally use TypeScript
-[x] Ideally use Docker to run node.js
-[x] Add unit tests where it makes sense
-[x] Add integration tests where it makes sense
-[x] When writing your code, imagine the service is meant to be released to production (with a low-to-moderate expected load)
-[x] Come up with a deployment strategy to a Cloud provider
-  - DigitalOcean Dockerized Droplet
+- [x] Ideally use TypeScript
+- [x] Ideally use Docker to run node.js
+- [x] Add unit tests where it makes sense
+- [x] Add integration tests where it makes sense
+- [x] When writing your code, imagine the service is meant to be released to production (with a low-to-moderate expected load)
+- [x] Come up with a deployment strategy to a Cloud provider
+  - DigitalOcean Dockerized Droplets
+  - AWS
 
 
 ## Development utilities:
