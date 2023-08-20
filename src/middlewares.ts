@@ -13,10 +13,11 @@ function errorHandler(
   next: NextFunction,
 ) {
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
-  //log stack if statusCode is 500: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
   res.status(statusCode);
   if (statusCode !== 500) {
     res.json({ message: err.message, error: true });
+  }else{
+    (req as any).error = err;
   }
 }
 
