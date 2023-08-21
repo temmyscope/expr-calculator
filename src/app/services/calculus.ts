@@ -1,17 +1,38 @@
+import { Get, Route, Inject, Query, Example, Request } from "tsoa";
 import calculate from "../../utils/calculus";
 import { InternalErrorException } from "../exception";
 import { CalculusRepositoryInterface, QueryHistory } from "../types";
 
+@Route('/api/calculus')
 class CalculusService {
 
   constructor(protected calculusRepo: CalculusRepositoryInterface) {}
   
-  async getUserHistory(ip: string): Promise<Array<QueryHistory>> {
+  /**
+   * Get User Calculus History
+   * @param ip 
+   * @returns {Promise<Array<QueryHistory>>}
+   */
+  @Get('/history')
+  async getUserHistory(@Inject() ip: string): Promise<Array<QueryHistory>> {
     const userHistory = await this.calculusRepo.getHistory(ip);
     return userHistory;
   }
-  
-  async calculate(query: string, ip: string): Promise<number> {
+
+  /**
+   * Evaluate expression
+   * @param {string} query - expression
+   * @param {string} ip
+   * 
+   * @returns {Promise<number>}
+   * @throws InternalErrorException
+   */
+  @Example({
+    error: false,
+    result: -132.89
+  })
+  @Get('/')
+  async calculate( @Query('query') query: string, @Inject() ip: string): Promise<number> {
     const startTime  = performance.now();
     let result = calculate(query);
     let timeTaken  = performance.now() - startTime;

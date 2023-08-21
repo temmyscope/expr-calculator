@@ -12,3 +12,9 @@ export interface CalculusRepositoryInterface {
   save(ip: string, query: string, result: number, timeTaken: number): Promise<boolean>;
   
 }
+
+export interface CalculusServiceInterface {
+  getUserHistory(ip: string): Promise<Array<QueryHistory>>
+
+  calculate(query: string, ip: string): Promise<number>
+}

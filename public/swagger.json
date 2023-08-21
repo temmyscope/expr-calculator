@@ -1,0 +1,117 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"QueryHistory": {
+				"properties": {
+					"timeTaken": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"result": {
+						"type": "number",
+						"format": "double"
+					},
+					"query": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"timeTaken",
+					"createdAt",
+					"result",
+					"query"
+				],
+				"type": "object"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "b24",
+		"version": "1.0.0",
+		"description": "Coding Challenge",
+		"license": {
+			"name": "MIT"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/calculus/history": {
+			"get": {
+				"operationId": "GetUserHistory",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/QueryHistory"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get User Calculus History",
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/calculus": {
+			"get": {
+				"operationId": "Calculate",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "number",
+									"format": "double"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"error": false,
+											"result": -132.89
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Evaluate expression",
+				"security": [],
+				"parameters": [
+					{
+						"description": "- expression",
+						"in": "query",
+						"name": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

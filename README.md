@@ -31,7 +31,19 @@ GET /calculus/history
 * On error: Either a HTTP error code or: `{ "error": true, "message": "string" }`
 
 <br />
-<br />
+
+## Deploy and Test
+
+- To test project, ensure postgres instance is set up and .env credentials is up to date,
+- run `yarn test`
+
+- To deploy locally, make sure docker is installed and `.env` file is set according to `.env.test`; 
+- run `docker compose --env-file .env up -d`
+
+
+## API Documentation
+
+- For api documentation, go to after starting application: http://localhost:3000/docs
 
 ## Setup
 ```
@@ -74,3 +86,9 @@ yarn dev
   * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 * [supertest](https://www.npmjs.com/package/supertest)
   * HTTP assertions made easy via superagent.
+* [tsoa](https://tsoa-community.github.io/docs/examples.html)
+ * Generate Swagger Documentation for API
+* [tsoa](https://tsoa-community.github.io/docs/examples.html)
+ * Generate Swagger Documentation for API
+* [Typeorm](https://typeorm.io/)
+ * An ORM library
