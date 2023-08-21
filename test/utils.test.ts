@@ -10,6 +10,14 @@ describe('utils', () => {
   });
 
   it('checks that an error is thrown if invalid operation is passed', (done) => {
+    const t = () => calculus('2 * (23//(3*3))- 23 * (2*3)');
+
+    expect(t).toThrow();
+
+    done();
+  });
+
+  it('checks that an error is thrown if invalid operation is passed', (done) => {
     const t = () => calculus('2% of (23/(3*3))- 23 * (2*3)');
 
     expect(t).toThrow(InvalidOperationException);

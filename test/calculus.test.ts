@@ -13,6 +13,18 @@ describe('GET /api/calculus', () => {
       });
   }, 10000);
 
+  
+  it('responds with error message when invalid operation is used in expression', async() => {
+    request(calculus)
+      .get(`/api/calculus?query=MiAqICgyMy8vKDMqMykpLSAyMyAqICgyKjMp`)
+      .set('Accept', 'application/json').expect('Content-Type', /json/)
+      .expect(422).then(res => {
+        expect(res.body).toStrictEqual({ 
+          error: true, message: "Unexpected end of input" 
+        });
+      });
+  }, 10000);
+
   it('responds with error message if query is empty', async() => {
     request(calculus)
       .get(`/api/calculus?query=`)
