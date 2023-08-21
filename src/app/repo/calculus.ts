@@ -10,10 +10,15 @@ class CalculusRepository implements CalculusRepositoryInterface{
   }
 
   async getHistory(ip: string): Promise<QueryHistory[]> {
-    return (await this.entity.findBy({ ip })).map(calculus => ({
-      query: calculus.query, result: calculus.result,
-      createdAt: calculus.createdAt, timeTaken: calculus.timeTaken
-    }));
+    return (await this.entity.createQueryBuilder("calculus")
+    .select([
+      "calculus.query", 
+      "calculus.result", 
+      "calculus.timeTaken", 
+      "calculus.createdAt"
+    ]).where("calculus.ip = :ip", { ip })
+    .orderBy("calculus.createdAt", "DESC")
+    .limit(5).getMany());
   }
 
   async save(ip: string, query: string, result: number, timeTaken: number): Promise<boolean> {
@@ -23,6 +28,7 @@ class CalculusRepository implements CalculusRepositoryInterface{
     calc.result = result;
     calc.timeTaken = timeTaken;
     let data = await this.entity.save(calc);
+    console.log(data)
     if (data.id) {
       return true
     }
