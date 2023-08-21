@@ -10,7 +10,11 @@ const router = express.Router();
 const calcRepo = new CalculusRepository(AppDataSource);
 const calculusService = new CalculusService(calcRepo);
 
-router.get('/', query('query').notEmpty().isBase64(), async(req: Request, res: Response, next: NextFunction) => {
+router.get(
+  '/', 
+  query('query').notEmpty().isBase64(), 
+  async(req: Request, res: Response, next: NextFunction
+) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
     return res.status(422).json(

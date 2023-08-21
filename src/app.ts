@@ -19,7 +19,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json({ limit: '15MB' }));
 
-//setup db connection
+//setup db sync
 AppDataSource.initialize().then(() => {
 }).catch((error) => console.log(error));
 
@@ -28,7 +28,6 @@ app.use('/api', api);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
-// only run in production
 const errorLogFormat    = ":requestId :status :req[error]";
 app.use(morgan(errorLogFormat, {
   skip: function (req, res) { return res.statusCode < 500 },

@@ -28,7 +28,6 @@ class CalculusRepository implements CalculusRepositoryInterface{
     calc.result = result;
     calc.timeTaken = timeTaken;
     let data = await this.entity.save(calc);
-    console.log(data)
     if (data.id) {
       return true
     }
