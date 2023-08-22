@@ -23,7 +23,7 @@ router.get(
   }
   try {
     const result = await calculusService.calculate(
-      Buffer.from(req.query.query as string, 'base64').toString('utf8'), req.ip
+      Buffer.from(req.query.query as string, 'base64').toString('utf8'), req.ip,
     );
     return res.status(200).json({ "error": false, "result": result });
   } catch (e) {
@@ -38,7 +38,7 @@ router.get(
 
 router.get('/history', async(req: Request, res: Response, next: NextFunction) => {
   try {
-    const history = await calculusService.getUserHistory(req.ip);
+    const history = await calculusService.getUserHistory(req.ip, 5, 0);
     return res.status(200).json({ data: history });
   } catch (e) {
     res.status(500);

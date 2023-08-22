@@ -9,7 +9,14 @@ class CalculusRepository implements CalculusRepositoryInterface{
     this.entity = source.getRepository(Calculus);
   }
 
-  async getHistory(ip: string): Promise<QueryHistory[]> {
+  /**
+   * fetch user's calculus history
+   * @param ip 
+   * @param {number} limit
+   * @param {number} skip - number of items to skip 
+   * @returns 
+   */
+  async getHistory(ip: string, limit: number, skip: number): Promise<QueryHistory[]> {
     return (await this.entity.createQueryBuilder("calculus")
     .select([
       "calculus.query", 
@@ -18,9 +25,18 @@ class CalculusRepository implements CalculusRepositoryInterface{
       "calculus.createdAt"
     ]).where("calculus.ip = :ip", { ip })
     .orderBy("calculus.createdAt", "DESC")
-    .limit(5).getMany());
+    .skip(skip).limit(limit).getMany());
   }
 
+  /**
+   * save details of calculation for user based on ip
+   * 
+   * @param {string} ip 
+   * @param {string} query 
+   * @param {number} result 
+   * @param {number} timeTaken 
+   * @returns 
+   */
   async save(ip: string, query: string, result: number, timeTaken: number): Promise<boolean> {
     const calc = new Calculus()
     calc.ip = ip;

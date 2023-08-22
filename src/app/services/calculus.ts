@@ -11,11 +11,17 @@ class CalculusService {
   /**
    * Get User Calculus History
    * @param ip 
+   * @param {number} limit 
+   * @param {number} skip 
    * @returns {Promise<Array<QueryHistory>>}
    */
   @Get('/history')
-  async getUserHistory(@Inject() ip: string): Promise<Array<QueryHistory>> {
-    const userHistory = await this.calculusRepo.getHistory(ip);
+  async getUserHistory(
+    @Inject() ip: string, 
+    @Inject() limit: number,
+    @Inject() skip: number = 0
+  ): Promise<Array<QueryHistory>> {
+    const userHistory = await this.calculusRepo.getHistory(ip, limit, skip);
     return userHistory;
   }
 
