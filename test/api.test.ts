@@ -9,7 +9,7 @@ describe('Test to check if Api is properly setup', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, {
-        message: 'B24 Calculus API - 👋🌎🌍🌏'
+        message: 'B24 Calculus API - 👋🌎🌍🌏',
       }, done);
   });
 
@@ -21,5 +21,3 @@ describe('Test to check if Api is properly setup', () => {
       .expect(404, done);
   });
 });
-
-

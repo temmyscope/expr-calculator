@@ -6,7 +6,6 @@ GET http://localhost:3000/api
 // evaluate expression 
 GET http://localhost:3000/api/calculus?query=MiAqICgyMy8oMyozKSktIDIzICogKDIqMyk=
 
-
 #### 
 // evaluate expression 
 GET http://localhost:3000/api/calculus?query=MiAqICgyMy8vKDMqMykpLSAyMyAqICgyKjMp
@@ -14,7 +13,6 @@ GET http://localhost:3000/api/calculus?query=MiAqICgyMy8vKDMqMykpLSAyMyAqICgyKjM
 #### 
 // evaluate expression 
 GET http://localhost:3000/api/calculus?query=
-
 
 ####
 //fetch history of current user

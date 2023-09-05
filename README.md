@@ -62,7 +62,7 @@ yarn test
 
 ## Development
 ```
-yarn dev
+yarn dev:start
 ```
 
 ## Rules

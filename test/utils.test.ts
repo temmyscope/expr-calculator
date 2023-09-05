@@ -21,9 +21,8 @@ describe('utils', () => {
     const t = () => calculus('2% of (23/(3*3))- 23 * (2*3)');
 
     expect(t).toThrow(InvalidOperationException);
-    expect(t).toThrow("Invalid operation/symbol/character found in expression");
+    expect(t).toThrow('Invalid operation/symbol/character found in expression');
 
     done();
   });
-  
 });

@@ -1,23 +1,24 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm"
+import {
+  Column, Entity, PrimaryGeneratedColumn, CreateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Calculus {
-
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn('uuid')
+    id: string;
 
   @Column({ length: 25, type: 'varchar' })
-  ip: string;
+    ip: string;
 
   @Column({ length: 625 })
-  query: string;
+    query: string;
 
-  @Column("float")
-  result: number;
+  @Column('float')
+    result: number;
 
-  @Column("float")
-  timeTaken: number;
+  @Column('float')
+    timeTaken: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+    createdAt: Date;
 }
