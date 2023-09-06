@@ -1,15 +1,16 @@
-import {
-  Get, Route, Inject, Query, Example, Request,
-} from 'tsoa';
-import { decodeExpr, isValidExpr } from '../../utils/calculus';
-import { AppDataSource } from '../../config/db';
-import { InvalidOperationException } from '../exception/invalid';
-import CalculusService from '../services/calculus.service'
+import { Get, Route, Inject, Query, Example } from 'tsoa';
 import { QueryHistory } from '../types';
+import { AppDataSource } from '../../config/db';
+import CalculusService from '../services/calculus.service';
 import CalculusRepository from '../repo/calculus.repository';
+import { decodeExpr, isValidExpr } from '../../utils/calculus';
+import { InvalidOperationException } from '../exception/invalid';
 
 @Route('/api/calculus')
 class CalculusController {
+  /**
+   * @protected calculusService
+   */
   protected calculusService: CalculusService;
 
   constructor() {
@@ -51,7 +52,7 @@ class CalculusController {
   async calculate(@Query('query') query: string, @Inject() ip: string): Promise<number> {
     let expression = decodeExpr(query);
     if (isValidExpr(expression)) {
-      return this.calculusService.calculate(decodeExpr(expression), ip);
+      return this.calculusService.calculate(expression, ip);
     }
     throw new InvalidOperationException();
   }

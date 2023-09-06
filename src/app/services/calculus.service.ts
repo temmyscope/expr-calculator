@@ -1,6 +1,5 @@
-
-import { InternalErrorException } from '../exception/internal';
 import { QueryHistory } from '../types';
+import { InternalErrorException } from '../exception/internal';
 import { InvalidOperationException } from '../exception/invalid';
 import { CalculusRepositoryInterface } from '../interfaces/calculus.repository.interface';
 
@@ -22,7 +21,7 @@ class CalculusService {
   }
 
   /**
-   * Evaluate expression
+   * Evaluate expression and save result in database
    * @param {string} query - expression
    * @param {string} ip
    *
