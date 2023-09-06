@@ -1,6 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
-import { Calculus } from '../entity/Calculus';
-import { CalculusRepositoryInterface, QueryHistory } from '../types';
+import { Calculus } from '../entity/calculus.entity';
+import { QueryHistory } from '../types';
+import { CalculusRepositoryInterface } from '../interfaces/calculus.repository.interface';
 
 class CalculusRepository implements CalculusRepositoryInterface {
   protected entity: Repository<Calculus>;
