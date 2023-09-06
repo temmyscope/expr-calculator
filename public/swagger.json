@@ -48,7 +48,7 @@
 	"paths": {
 		"/api/calculus/history": {
 			"get": {
-				"operationId": "GetUserHistory",
+				"operationId": "GetHistory",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -97,7 +97,7 @@
 				"security": [],
 				"parameters": [
 					{
-						"description": "- expression",
+						"description": "- encoded expression",
 						"in": "query",
 						"name": "query",
 						"required": true,

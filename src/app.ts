@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 import express from 'express';
-import api from './api/index';
+import api from './api/index.api';
 import middlewares from './middlewares';
 import { AppDataSource } from './config/db';
 
