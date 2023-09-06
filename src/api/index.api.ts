@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 
-import calculus from './calculus';
+import calculus from './calculus.api';
 
 const router = express.Router();
 
