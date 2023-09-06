@@ -10,7 +10,7 @@ const AppDataSource = new DataSource(
     password: process.env.DB_PASS as string,
     database: process.env.DB_NAME as string,
     type: process.env.DB_CONNECTION as string,
-    entities: [`${__dirname}/../app/entity/Calculus.{js,ts}`],
+    entities: [`${__dirname}/../app/entity/calculus.entity.{js,ts}`],
     synchronize: true,
     logging: false,
   } as DataSourceOptions,
